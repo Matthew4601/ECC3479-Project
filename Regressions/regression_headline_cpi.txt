@@ -1,0 +1,112 @@
+REGRESSION 1: ENERGY CPI → HEADLINE CPI PASS-THROUGH
+Model:  ΔHeadlineCPI_t = α + Σ(k=0..3) βk·ΔEnergyCPI_(t-k)
+              + λ·HeadlineCPI_(t-1) + γ·PostShock_t + ε_t
+SE:     HAC (Newey-West, maxlags=3)
+Dep:    Headline CPI YoY %
+Freq:   Monthly
+
+
+========================================================================
+Canada  |  n = 444 monthly obs  |  1988-04-01 – 2025-03-01
+========================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           headline_yoy   R-squared:                       0.969
+Model:                            OLS   Adj. R-squared:                  0.969
+Method:                 Least Squares   F-statistic:                     1873.
+Date:                Tue, 05 May 2026   Prob (F-statistic):          3.89e-308
+Time:                        05:37:49   Log-Likelihood:                -42.868
+No. Observations:                 444   AIC:                             99.74
+Df Residuals:                     437   BIC:                             128.4
+Df Model:                           6                                         
+Covariance Type:                  HAC                                         
+=====================================================================================
+                        coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+const                 0.0396      0.028      1.400      0.162      -0.016       0.095
+energy_yoy            0.0889      0.003     26.320      0.000       0.082       0.096
+energy_lag1          -0.0795      0.005    -15.766      0.000      -0.089      -0.070
+energy_lag2           0.0023      0.004      0.526      0.599      -0.006       0.011
+energy_lag3       -3.657e-05      0.003     -0.013      0.990      -0.006       0.006
+headline_yoy_lag1     0.9645      0.016     60.084      0.000       0.933       0.996
+post_shock           -0.0264      0.051     -0.519      0.604      -0.126       0.073
+==============================================================================
+Omnibus:                       95.534   Durbin-Watson:                   1.969
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2183.288
+Skew:                          -0.140   Prob(JB):                         0.00
+Kurtosis:                      13.860   Cond. No.                         77.1
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 3 lags and without small sample correction
+  Cumulative energy pass-through (sum β_energy): +0.0116
+
+========================================================================
+United Kingdom  |  n = 432 monthly obs  |  1989-04-01 – 2025-03-01
+========================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           headline_yoy   R-squared:                       0.989
+Model:                            OLS   Adj. R-squared:                  0.989
+Method:                 Least Squares   F-statistic:                     3791.
+Date:                Tue, 05 May 2026   Prob (F-statistic):               0.00
+Time:                        05:37:49   Log-Likelihood:                 54.178
+No. Observations:                 432   AIC:                            -94.36
+Df Residuals:                     425   BIC:                            -65.88
+Df Model:                           6                                         
+Covariance Type:                  HAC                                         
+=====================================================================================
+                        coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+const                 0.0209      0.024      0.886      0.376      -0.025       0.067
+energy_yoy            0.0662      0.005     13.425      0.000       0.057       0.076
+energy_lag1          -0.0598      0.005    -11.398      0.000      -0.070      -0.050
+energy_lag2          -0.0014      0.006     -0.248      0.804      -0.012       0.009
+energy_lag3           0.0023      0.003      0.660      0.509      -0.004       0.009
+headline_yoy_lag1     0.9782      0.013     74.892      0.000       0.953       1.004
+post_shock            0.0044      0.073      0.061      0.951      -0.138       0.147
+==============================================================================
+Omnibus:                      112.726   Durbin-Watson:                   1.874
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              784.016
+Skew:                           0.919   Prob(JB):                    5.66e-171
+Kurtosis:                       9.339   Cond. No.                         105.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 3 lags and without small sample correction
+  Cumulative energy pass-through (sum β_energy): +0.0073
+
+========================================================================
+United States  |  n = 444 monthly obs  |  1988-04-01 – 2025-03-01
+========================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           headline_yoy   R-squared:                       0.991
+Model:                            OLS   Adj. R-squared:                  0.991
+Method:                 Least Squares   F-statistic:                     3031.
+Date:                Tue, 05 May 2026   Prob (F-statistic):               0.00
+Time:                        05:37:49   Log-Likelihood:                 205.34
+No. Observations:                 444   AIC:                            -396.7
+Df Residuals:                     437   BIC:                            -368.0
+Df Model:                           6                                         
+Covariance Type:                  HAC                                         
+=====================================================================================
+                        coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+const                 0.0064      0.024      0.269      0.788      -0.040       0.053
+energy_yoy            0.0879      0.003     29.478      0.000       0.082       0.094
+energy_lag1          -0.0835      0.004    -22.248      0.000      -0.091      -0.076
+energy_lag2           0.0033      0.003      1.055      0.292      -0.003       0.009
+energy_lag3          -0.0037      0.002     -1.591      0.112      -0.008       0.001
+headline_yoy_lag1     0.9939      0.010     99.437      0.000       0.974       1.013
+post_shock           -0.1201      0.040     -2.984      0.003      -0.199      -0.041
+==============================================================================
+Omnibus:                       18.935   Durbin-Watson:                   1.469
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               33.446
+Skew:                           0.272   Prob(JB):                     5.46e-08
+Kurtosis:                       4.230   Cond. No.                         103.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 3 lags and without small sample correction
+  Cumulative energy pass-through (sum β_energy): +0.0040

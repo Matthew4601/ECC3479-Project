@@ -1,0 +1,84 @@
+REGRESSION 4: UK — HEADLINE CPI WITH AND WITHOUT EPG POLICY DUMMY
+Tests whether the EPG (Oct 2022–Jun 2023) significantly reduced
+energy price pass-through to headline CPI in the UK.
+EPG dummy = 1 during Oct 2022 – Jun 2023, else 0.
+
+
+========================================================================
+UK — without EPG dummy
+========================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           headline_yoy   R-squared:                       0.989
+Model:                            OLS   Adj. R-squared:                  0.989
+Method:                 Least Squares   F-statistic:                     3791.
+Date:                Tue, 05 May 2026   Prob (F-statistic):               0.00
+Time:                        05:37:49   Log-Likelihood:                 54.178
+No. Observations:                 432   AIC:                            -94.36
+Df Residuals:                     425   BIC:                            -65.88
+Df Model:                           6                                         
+Covariance Type:                  HAC                                         
+=====================================================================================
+                        coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+const                 0.0209      0.024      0.886      0.376      -0.025       0.067
+energy_yoy            0.0662      0.005     13.425      0.000       0.057       0.076
+energy_lag1          -0.0598      0.005    -11.398      0.000      -0.070      -0.050
+energy_lag2          -0.0014      0.006     -0.248      0.804      -0.012       0.009
+energy_lag3           0.0023      0.003      0.660      0.509      -0.004       0.009
+headline_yoy_lag1     0.9782      0.013     74.892      0.000       0.953       1.004
+post_shock            0.0044      0.073      0.061      0.951      -0.138       0.147
+==============================================================================
+Omnibus:                      112.726   Durbin-Watson:                   1.874
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              784.016
+Skew:                           0.919   Prob(JB):                    5.66e-171
+Kurtosis:                       9.339   Cond. No.                         105.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 3 lags and without small sample correction
+  Cumulative energy pass-through (sum β_energy): +0.0073
+
+========================================================================
+UK — with EPG dummy
+========================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           headline_yoy   R-squared:                       0.989
+Model:                            OLS   Adj. R-squared:                  0.989
+Method:                 Least Squares   F-statistic:                     3312.
+Date:                Tue, 05 May 2026   Prob (F-statistic):               0.00
+Time:                        05:37:49   Log-Likelihood:                 54.320
+No. Observations:                 432   AIC:                            -92.64
+Df Residuals:                     424   BIC:                            -60.09
+Df Model:                           7                                         
+Covariance Type:                  HAC                                         
+=====================================================================================
+                        coef    std err          z      P>|z|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+const                 0.0218      0.023      0.940      0.347      -0.024       0.067
+energy_yoy            0.0663      0.005     13.989      0.000       0.057       0.076
+energy_lag1          -0.0599      0.005    -11.710      0.000      -0.070      -0.050
+energy_lag2          -0.0011      0.006     -0.195      0.845      -0.012       0.010
+energy_lag3           0.0015      0.004      0.358      0.721      -0.007       0.010
+headline_yoy_lag1     0.9789      0.013     74.260      0.000       0.953       1.005
+post_shock           -0.0139      0.084     -0.165      0.869      -0.178       0.151
+epg_dummy             0.0641      0.171      0.375      0.707      -0.270       0.399
+==============================================================================
+Omnibus:                      112.306   Durbin-Watson:                   1.880
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              782.938
+Skew:                           0.914   Prob(JB):                    9.71e-171
+Kurtosis:                       9.337   Cond. No.                         286.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 3 lags and without small sample correction
+  Cumulative energy pass-through (sum β_energy): +0.0068
+
+EPG POLICY EFFECT SUMMARY:
+  Cumulative energy pass-through WITHOUT EPG control: +0.0073
+  Cumulative energy pass-through WITH    EPG control: +0.0068
+  EPG coefficient:  +0.0641  (p = 0.7073)
+  Interpretation: During the EPG period, headline CPI was on average
+  +0.06 percentage points higher than the energy-CPI model alone predicts,
+  consistent with no suppression effect.
