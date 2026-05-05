@@ -431,7 +431,17 @@ def main():
 if __name__ == "__main__":
     main()
 
+Primary Econometric Analysis
+Descriptive or Causal
 The data analysis is descriptive as there is not the causal association in the data that could be used to definitively prove a causal relationship. The data is therefore a reduced-form estimate of conditional association which can show the historical pass-through estimates, showing how much headline CPI and consumption moved in conjunction with a unit movement in the energy CPI of the three nations. The cross-country analysis of the ceofficients informs on the structural differences in energy market exposure, but only shows a relationship of conditional correlation, not causation. There is a theoretcial causal arguement, but the data does not support this arguement and therefore it is by necesssity a descriptive analysis.
+
+Potential threats
+As this is a deascriptive analysis treatment effects are not examined but rather conditional associations and correlations are, therefore any issues which distorts the estimated correlations is an issue within the analysis. The data used in the models is taken from a 37 year period, whcih helps to establish trends and correaltions within the data, but simialry over that period other exogenous factors could have influenced the relationship between enrgy CPI and headline CPI. This is even more problematic when considering that over this time period the three countries may have pursued policies which differ from one another and how this instability factors into the model, especaially as some notable recessionary events occured within the measured time period (1988 - 2025).
+There is some overlap between energy and headline CPI, with energy prices being included within the "basket of goods" that is used to determine the inflation rate. This menas that some of the correlation between the two variables is directly due to the fact that energy prices are included in headline inflation.
+The Ofgem cap and energy price guarantee (EPG) are included in the reporting of the energy CPI dataset and therefore are already within the model and therefore more difficult to control for. 
+Regressions only use lags and a psot-shock dummy, ommitting other factors that could have contributed to the changes in consumption such as wages, debt levels, interest rates, etc.
+Frequency issues in the second regression where the consumption variable is wuarterly and the energy CPI regressor is monthly, this was solved by converting monthly into qurterly by taking the avergae, though this smoothes any volatilty that was present between the months into a smooth quarterly figure.
+These threats do not invalidate the descriptive findings of the data analysis only their preciion and reliabilty in an exact form.
 
 Regression 1 Headline CPI Regression
 Regression Composition
@@ -485,3 +495,5 @@ All of the regressors are the same as the previous model with just the addition 
 
 Results
 The EPg D dummy variable is positve (0.064) and statistically insignificant (0.05 < 0.707) leading to the opposite of the expected effect that the EPG would depress the headliine inflation rate by providing a cap on energy prices and therefore prevent an excessie increase. This regression does not provide any usable infromation, with the EPG price adjustment already being within the inflation data gained from the Federal Reserve of Saint Louis, and therefore this is why this regression fails, the influence of teh EPG is already within the model.
+
+The simplified versions of the regressions are under the regressions folder and stated as "regression summary table"
