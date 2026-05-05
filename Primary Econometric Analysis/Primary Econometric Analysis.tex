@@ -1,1 +1,64 @@
 
+Primary Econometric Analysis
+Descriptive or Causal
+The data analysis is descriptive as there is not the causal association in the data that could be used to definitively prove a causal relationship. The data is therefore a reduced-form estimate of conditional association which can show the historical pass-through estimates, showing how much headline CPI and consumption moved in conjunction with a unit movement in the energy CPI of the three nations. The cross-country analysis of the coefficients informs on the structural differences in energy market exposure, but only shows a relationship of conditional correlation, not causation. There is a theoretical causal argument, but the data does not support this argument and therefore it is by necessity a descriptive analysis.
+
+Potential threats
+As this is a descriptive analysis treatment effects are not examined but rather conditional associations and correlations are, therefore any issues which distorts the estimated correlations is an issue within the analysis. The data used in the models is taken from a 37 year period, which helps to establish trends and correlations within the data, but similarly over that period other exogenous factors could have influenced the relationship between energy CPI and headline CPI. This is even more problematic when considering that over this time period the three countries may have pursued policies which differ from one another and how this instability factors into the model, especially as some notable recessionary events occurred within the measured time period (1988 - 2025).
+There is some overlap between energy and headline CPI, with energy prices being included within the "basket of goods" that is used to determine the inflation rate. This means that some of the correlation between the two variables is directly due to the fact that energy prices are included in headline inflation.
+The Ofgem cap and energy price guarantee (EPG) are included in the reporting of the energy CPI dataset and therefore are already within the model and therefore more difficult to control for. 
+Regressions only use lags and a post-shock dummy, omitting other factors that could have contributed to the changes in consumption such as wages, debt levels, interest rates, etc.
+Frequency issues in the second regression where the consumption variable is quarterly and the energy CPI regressor is monthly, this was solved by converting monthly into quarterly by taking the average, though this smoothes any volatility that was present between the months into a smooth quarterly figure.
+These threats do not invalidate the descriptive findings of the data analysis only their precision and reliability in an exact form.
+
+
+Regression 1 Headline CPI Regression
+Regression Composition
+There is a regression for each country, the United Kingdom, United States and Canada, which show a distributed lag regression.
+A dummy term is used to isolate the effects of before and after the shock, where it equals one after October 2022.
+
+Results
+All three countries exhibited the same pattern in the data, where a significant positive effect occurs at the base lag (lag 0) but is then almost fully reversed by a roughly equal negative change in lag 1. These were the only two statistically significant lags as their P-values > 0.05, with lags 2 and 3 being statistically insignificant. This shows that energy prices feed into the headline CPI figure within the first month but is not persistent over the longer term, even beyond the 3 month time lag. 
+The r squared term is high for all three models (ranging from 0.969 - 0.991) showing that the previous months CPI rate explains a large proportion of the current months.
+The post-shock dummy shows the effect of the energy shock on each nation's economy the best and how the EPG influences the United Kingdom's results. Canada has a statistically insignificant (0.05 < 0.604) post-shock dummy, indicating that there is no abnormal inflation above the energy price predictions after October 2022.
+The United Kingdom's post shock dummy is strongly insignificant (0.05 < 0.951), which would align with the influence of the EPG on the British economy and shows that the shock never fully materialised in the energy CPI regressor due to this government interference.
+The United States is the only nation of the three which has a statistically significant post-shock term (0.05 > 0.003), which is also negative (-0.1201). This shows that the headline CPI rate ran 0.1201 percentage points lower per month than the model predicted, showing structural insulation of the United States economy towards the energy price shock.
+
+
+Regression 2 Energy CPI and Domestic Consumption
+Regression Composition
+A regression for each country that shows the lagged effect of energy prices on household consumption.
+A dummy term is included to isolate between the before and after impacts of the shock.
+Three lags are included representing three months to give comparability over this quarterly period.
+
+Results
+The r squared term is lower in these regressions (0.487 for Canada, 0.300 for the UK and 0.512 for the US) than in the previous one (0.969 for Canada, 0.989 for the UK and 0.991 for the US), which can be expected as consumption has other drivers that may be more pertinent to consumption changes such as wages.
+Canada has a completely insignificant post-shock dummy (0.05 < 0.966), showing that consumption did not meaningfully change after October 2022 from what the model would predict (-0.0282 percentage points per month), indicating that there is no abnormal consumption response due to the price changes in the energy rate.
+The United States has a statistically significant (0.05 > 0.049) and positive post-shock dummy (0.6176) indicating that consumption ran 0.6176 percentage points above model predictions after October 2022. This shows that there is a positive influence to the economy of the United States due to the energy price shock.
+The United Kingdom has a large (4.5902) but not statistically relevant (0.05 < 0.182) result for the post-shock dummy. The data for the United Kingdom is less than that for the United States and Canada which have additional post-shock quarters to compare and therefore has a large standard error of 3.44.
+The constant term is significant for each country and indicates the consumption growth on a year on year basis at around 1% for each nation. 
+A large portion of the current months consumption growth can be attributed to the previous month, with all three nations having positive and statistically significant values for this coefficient, which is smaller in this regression compared to the headline inflation regression due to the influence of other factors on household consumption.
+
+
+Regression 3 Pooled Panel
+Regression Composition
+The pooled panel regression pools all three nations into a single model, using the US as a baseline to test whether cross-country pass through differences from the previous regressions are statistically significant.
+
+Results
+Canada has a higher pass-through relative to the United States, which is statistically significant (0.05 > 0.021), showing that energy price changes affect Canada's headline CPI rate to a higher degree than the same unit increase in energy prices would influence the United States. The United Kingdom's pass-through is negative and statistically insignificant (0.05 < 0.417), demonstrating that the impact of the one unit change in the energy CPI and its influence on headline CPI cannot be distinguished between the US and UK.
+The effect of the Canadian dummy fixed country effects are negative and statistically significant (0.05 > 0.005), demonstrating that Canadian headline CPI runs 0.0614 percentage points lower per month than the United States on average, when holding energy prices constant. This reflects the differences between the American and Canadian economies, which can be expected.
+The United Kingdom's fixed effect is small (-0.0104) and not statistically significant (0.05 < 0.636), showing that the United States and United Kingdom's average inflation is generally similar when controlling for energy prices.
+The headline year on year lag is statistically significant (0.05 > 0.000) and shows that inflation persistence is still dominant within all three of the economies, showing that the influence of the previous periods inflation has an effect on the current period.
+The R squared is still a high figure (0.962) showing that the model fits well, however not as well as the individual regressions. 
+This regression panel clearly shows Canada's higher pass-through (0.0058) and that it is statistically significant relatively compared to the United States (0.05 > 0.021), but the United Kingdom's pass-through (-0.0021) is not statistically significant relative to the United States (0.05 < 0.417), which is consistent with the effect that the EPG would have on the UK.
+
+
+Regression 4 Altered UK
+Regression Composition
+This regression is similar to the one done for the United Kingdom under the headline CPI regression, with one additional regressor in the binary EPG dummy variable, to test whether the EPG produced a measurable suppression of headline inflation.
+All of the regressors are the same as the previous model with just the addition of this dummy variable.
+
+Results
+The EPG dummy variable is positive (0.064) and statistically insignificant (0.05 < 0.707) leading to the opposite of the expected effect that the EPG would depress the headline inflation rate by providing a cap on energy prices and therefore prevent an excessive increase. This regression does not provide any usable information, with the EPG price adjustment already being within the inflation data gained from the Federal Reserve of Saint Louis, and therefore this is why this regression fails, the influence of the EPG is already within the model.
+
+The simplified versions of the regressions are under the regressions folder and stated as "regression summary table"
