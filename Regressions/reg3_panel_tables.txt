@@ -1,0 +1,29 @@
+======================================================================
+REGRESSION 3 — POOLED PANEL: DIFFERENTIAL PASS-THROUGH
+Dependent variable: Headline CPI YoY %  |  Baseline: USA
+Frequency: Monthly  |  All countries pooled
+======================================================================
+
+──────────────────────────────────────────────────────────────────────
+Pooled (Canada + UK + USA)
+──────────────────────────────────────────────────────────────────────
++----------------------------+-------------+------------+---------+
+|         Regressor          | Coefficient | Std. Error | p-value |
++----------------------------+-------------+------------+---------+
+|          Constant          |  +0.1892*** |   0.0312   |  0.0000 |
+|       Energy CPI (t)       |  +0.0193*** |   0.0023   |  0.0000 |
+|    Canada × Energy CPI     |  +0.0058**  |   0.0025   |  0.0208 |
+|      UK × Energy CPI       |   -0.0021   |   0.0025   |  0.4168 |
+|         Canada FE          |  -0.0614*** |   0.0220   |  0.0053 |
+|           UK FE            |   -0.0104   |   0.0220   |  0.6364 |
+|     Headline CPI (t-1)     |  +0.9033*** |   0.0121   |  0.0000 |
+|      Post-Shock Dummy      |   +0.0750   |   0.0562   |  0.1820 |
++----------------------------+-------------+------------+---------+
+  Cumulative energy pass-through : +0.0193
+  R-squared                      : 0.9615
+  N (observations)               : 1320
+  Sample period                  : Apr 1988 to Mar 2025
+  Total pass-through — USA     : +0.0193
+  Total pass-through — Canada  : +0.0250  (baseline +0.0193 + differential +0.0058)
+  Total pass-through — UK      : +0.0172  (baseline +0.0193 + differential -0.0021)
+  * p<0.10   ** p<0.05   *** p<0.01   (HAC SE, Newey-West m=3)
