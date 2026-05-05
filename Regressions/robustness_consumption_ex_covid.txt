@@ -1,0 +1,251 @@
+ROBUSTNESS CHECK: CONSUMPTION REGRESSION EXCLUDING COVID QUARTERS
+Excluded observations: 2020 Q1 (Jan–Mar) and 2020 Q2 (Apr–Jun)
+Rationale: extreme consumption collapse/rebound inflates kurtosis
+           and distorts standard errors in the main model.
+All other specifications identical to Regression 2.
+
+========================================================================
+Canada — ORIGINAL  |  n = 164 obs  |  kurtosis check below
+========================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               cons_yoy   R-squared:                       0.487
+Model:                            OLS   Adj. R-squared:                  0.468
+Method:                 Least Squares   F-statistic:                     32.42
+Date:                Tue, 05 May 2026   Prob (F-statistic):           3.33e-25
+Time:                        06:15:37   Log-Likelihood:                -323.16
+No. Observations:                 164   AIC:                             660.3
+Df Residuals:                     157   BIC:                             682.0
+Df Model:                           6                                         
+Covariance Type:                  HAC                                         
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const             0.9404      0.391      2.404      0.016       0.174       1.707
+energy_yoy        0.1655      0.072      2.286      0.022       0.024       0.307
+energy_lag1      -0.1423      0.062     -2.290      0.022      -0.264      -0.020
+energy_lag2       0.0112      0.025      0.457      0.648      -0.037       0.059
+energy_lag3       0.0168      0.030      0.566      0.572      -0.041       0.075
+cons_yoy_lag1     0.5934      0.104      5.729      0.000       0.390       0.796
+post_shock       -0.0282      0.660     -0.043      0.966      -1.322       1.265
+==============================================================================
+Omnibus:                       88.543   Durbin-Watson:                   2.118
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             3664.148
+Skew:                          -1.161   Prob(JB):                         0.00
+Kurtosis:                      26.040   Cond. No.                         113.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 3 lags and without small sample correction
+  Cumulative energy pass-through: +0.0512
+  Kurtosis of residuals:          23.80
+
+========================================================================
+Canada — EX-COVID  |  n = 162 obs  (dropped 2 quarters)
+========================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               cons_yoy   R-squared:                       0.516
+Model:                            OLS   Adj. R-squared:                  0.497
+Method:                 Least Squares   F-statistic:                     56.33
+Date:                Tue, 05 May 2026   Prob (F-statistic):           1.70e-36
+Time:                        06:15:37   Log-Likelihood:                -282.15
+No. Observations:                 162   AIC:                             578.3
+Df Residuals:                     155   BIC:                             599.9
+Df Model:                           6                                         
+Covariance Type:                  HAC                                         
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const             1.3154      0.227      5.804      0.000       0.871       1.760
+energy_yoy        0.1055      0.050      2.106      0.035       0.007       0.204
+energy_lag1      -0.0883      0.030     -2.957      0.003      -0.147      -0.030
+energy_lag2       0.0190      0.028      0.692      0.489      -0.035       0.073
+energy_lag3      -0.0140      0.016     -0.855      0.392      -0.046       0.018
+cons_yoy_lag1     0.5341      0.091      5.859      0.000       0.355       0.713
+post_shock        0.0710      0.560      0.127      0.899      -1.026       1.169
+==============================================================================
+Omnibus:                      139.057   Durbin-Watson:                   2.146
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             4324.396
+Skew:                           2.710   Prob(JB):                         0.00
+Kurtosis:                      27.724   Cond. No.                         113.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 3 lags and without small sample correction
+  Cumulative energy pass-through: +0.0222
+  Kurtosis of residuals:          25.54
+
+  ── CHANGE SUMMARY (Canada) ──
+  energy_yoy            orig: +0.1655 (p=0.022)  →  ex-COVID: +0.1055 (p=0.035)  Δ=-0.0600
+  energy_lag1           orig: -0.1423 (p=0.022)  →  ex-COVID: -0.0883 (p=0.003)  Δ=+0.0540
+  energy_lag2           orig: +0.0112 (p=0.648)  →  ex-COVID: +0.0190 (p=0.489)  Δ=+0.0078
+  energy_lag3           orig: +0.0168 (p=0.572)  →  ex-COVID: -0.0140 (p=0.392)  Δ=-0.0308
+  cons_yoy_lag1         orig: +0.5934 (p=0.000)  →  ex-COVID: +0.5341 (p=0.000)  Δ=-0.0593
+  post_shock            orig: -0.0282 (p=0.966)  →  ex-COVID: +0.0710 (p=0.899)  Δ=+0.0992
+  Cumulative PT         orig: +0.0512  →  ex-COVID: +0.0222  Δ=-0.0290
+  R²                    orig: 0.4871  →  ex-COVID: 0.5160
+
+========================================================================
+United Kingdom — ORIGINAL  |  n = 108 obs  |  kurtosis check below
+========================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               cons_yoy   R-squared:                       0.300
+Model:                            OLS   Adj. R-squared:                  0.258
+Method:                 Least Squares   F-statistic:                     17.63
+Date:                Tue, 05 May 2026   Prob (F-statistic):           7.03e-14
+Time:                        06:15:37   Log-Likelihood:                -310.16
+No. Observations:                 108   AIC:                             634.3
+Df Residuals:                     101   BIC:                             653.1
+Df Model:                           6                                         
+Covariance Type:                  HAC                                         
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const             1.2904      0.959      1.346      0.178      -0.589       3.170
+energy_yoy        0.2219      0.178      1.248      0.212      -0.127       0.570
+energy_lag1      -0.2466      0.202     -1.221      0.222      -0.642       0.149
+energy_lag2      -0.0288      0.178     -0.162      0.872      -0.378       0.320
+energy_lag3       0.0001      0.051      0.003      0.998      -0.100       0.100
+cons_yoy_lag1     0.4539      0.182      2.498      0.012       0.098       0.810
+post_shock        4.5902      3.442      1.334      0.182      -2.155      11.336
+==============================================================================
+Omnibus:                       62.823   Durbin-Watson:                   2.118
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2368.417
+Skew:                           1.038   Prob(JB):                         0.00
+Kurtosis:                      25.847   Cond. No.                         213.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 3 lags and without small sample correction
+  Cumulative energy pass-through: -0.0534
+  Kurtosis of residuals:          24.00
+
+========================================================================
+United Kingdom — EX-COVID  |  n = 106 obs  (dropped 2 quarters)
+========================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               cons_yoy   R-squared:                       0.311
+Model:                            OLS   Adj. R-squared:                  0.269
+Method:                 Least Squares   F-statistic:                     15.33
+Date:                Tue, 05 May 2026   Prob (F-statistic):           2.36e-12
+Time:                        06:15:37   Log-Likelihood:                -286.10
+No. Observations:                 106   AIC:                             586.2
+Df Residuals:                      99   BIC:                             604.9
+Df Model:                           6                                         
+Covariance Type:                  HAC                                         
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const             1.8794      0.666      2.822      0.005       0.574       3.185
+energy_yoy        0.1251      0.143      0.873      0.383      -0.156       0.406
+energy_lag1      -0.1035      0.117     -0.888      0.375      -0.332       0.125
+energy_lag2      -0.1170      0.115     -1.015      0.310      -0.343       0.109
+energy_lag3       0.0040      0.042      0.097      0.923      -0.078       0.086
+cons_yoy_lag1     0.4041      0.161      2.508      0.012       0.088       0.720
+post_shock        5.1754      3.179      1.628      0.103      -1.054      11.405
+==============================================================================
+Omnibus:                      130.370   Durbin-Watson:                   2.275
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             5031.037
+Skew:                           3.964   Prob(JB):                         0.00
+Kurtosis:                      35.806   Cond. No.                         213.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 3 lags and without small sample correction
+  Cumulative energy pass-through: -0.0914
+  Kurtosis of residuals:          34.47
+
+  ── CHANGE SUMMARY (United Kingdom) ──
+  energy_yoy            orig: +0.2219 (p=0.212)  →  ex-COVID: +0.1251 (p=0.383)  Δ=-0.0968
+  energy_lag1           orig: -0.2466 (p=0.222)  →  ex-COVID: -0.1035 (p=0.375)  Δ=+0.1431
+  energy_lag2           orig: -0.0288 (p=0.872)  →  ex-COVID: -0.1170 (p=0.310)  Δ=-0.0882
+  energy_lag3           orig: +0.0001 (p=0.998)  →  ex-COVID: +0.0040 (p=0.923)  Δ=+0.0039
+  cons_yoy_lag1         orig: +0.4539 (p=0.012)  →  ex-COVID: +0.4041 (p=0.012)  Δ=-0.0498
+  post_shock            orig: +4.5902 (p=0.182)  →  ex-COVID: +5.1754 (p=0.103)  Δ=+0.5852
+  Cumulative PT         orig: -0.0534  →  ex-COVID: -0.0914  Δ=-0.0380
+  R²                    orig: 0.2999  →  ex-COVID: 0.3107
+
+========================================================================
+United States — ORIGINAL  |  n = 66 obs  |  kurtosis check below
+========================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               cons_yoy   R-squared:                       0.512
+Model:                            OLS   Adj. R-squared:                  0.462
+Method:                 Least Squares   F-statistic:                     65.59
+Date:                Tue, 05 May 2026   Prob (F-statistic):           2.90e-24
+Time:                        06:15:37   Log-Likelihood:                -138.55
+No. Observations:                  66   AIC:                             291.1
+Df Residuals:                      59   BIC:                             306.4
+Df Model:                           6                                         
+Covariance Type:                  HAC                                         
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const             1.0272      0.386      2.658      0.008       0.270       1.784
+energy_yoy        0.1578      0.083      1.895      0.058      -0.005       0.321
+energy_lag1      -0.1358      0.066     -2.048      0.041      -0.266      -0.006
+energy_lag2       0.0261      0.030      0.856      0.392      -0.034       0.086
+energy_lag3      -0.0059      0.018     -0.329      0.742      -0.041       0.029
+cons_yoy_lag1     0.4945      0.100      4.965      0.000       0.299       0.690
+post_shock        0.6176      0.313      1.973      0.049       0.004       1.231
+==============================================================================
+Omnibus:                       49.180   Durbin-Watson:                   1.855
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              606.459
+Skew:                           1.591   Prob(JB):                    2.04e-132
+Kurtosis:                      17.505   Cond. No.                         64.7
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 3 lags and without small sample correction
+  Cumulative energy pass-through: +0.0421
+  Kurtosis of residuals:          15.76
+
+========================================================================
+United States — EX-COVID  |  n = 64 obs  (dropped 2 quarters)
+========================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               cons_yoy   R-squared:                       0.526
+Model:                            OLS   Adj. R-squared:                  0.476
+Method:                 Least Squares   F-statistic:                     45.18
+Date:                Tue, 05 May 2026   Prob (F-statistic):           6.77e-20
+Time:                        06:15:37   Log-Likelihood:                -126.05
+No. Observations:                  64   AIC:                             266.1
+Df Residuals:                      57   BIC:                             281.2
+Df Model:                           6                                         
+Covariance Type:                  HAC                                         
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const             1.2686      0.352      3.605      0.000       0.579       1.958
+energy_yoy        0.1134      0.077      1.469      0.142      -0.038       0.265
+energy_lag1      -0.0903      0.050     -1.821      0.069      -0.187       0.007
+energy_lag2       0.0182      0.026      0.709      0.478      -0.032       0.068
+energy_lag3      -0.0192      0.015     -1.299      0.194      -0.048       0.010
+cons_yoy_lag1     0.4844      0.096      5.048      0.000       0.296       0.673
+post_shock        0.4438      0.261      1.700      0.089      -0.068       0.956
+==============================================================================
+Omnibus:                       95.017   Durbin-Watson:                   1.934
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2170.540
+Skew:                           4.274   Prob(JB):                         0.00
+Kurtosis:                      30.219   Cond. No.                         64.8
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 3 lags and without small sample correction
+  Cumulative energy pass-through: +0.0221
+  Kurtosis of residuals:          29.57
+
+  ── CHANGE SUMMARY (United States) ──
+  energy_yoy            orig: +0.1578 (p=0.058)  →  ex-COVID: +0.1134 (p=0.142)  Δ=-0.0444
+  energy_lag1           orig: -0.1358 (p=0.041)  →  ex-COVID: -0.0903 (p=0.069)  Δ=+0.0456
+  energy_lag2           orig: +0.0261 (p=0.392)  →  ex-COVID: +0.0182 (p=0.478)  Δ=-0.0079
+  energy_lag3           orig: -0.0059 (p=0.742)  →  ex-COVID: -0.0192 (p=0.194)  Δ=-0.0133
+  cons_yoy_lag1         orig: +0.4945 (p=0.000)  →  ex-COVID: +0.4844 (p=0.000)  Δ=-0.0101
+  post_shock            orig: +0.6176 (p=0.049)  →  ex-COVID: +0.4438 (p=0.089)  Δ=-0.1738
+  Cumulative PT         orig: +0.0421  →  ex-COVID: +0.0221  Δ=-0.0201
+  R²                    orig: 0.5119  →  ex-COVID: 0.5261

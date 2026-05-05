@@ -430,3 +430,61 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+The data analysis is desciptive
+
+Regression 1 Headline CPI Regression
+Regression Composition
+There is a regression for each country, the United Kingdom, Untied States and Canada, which show a distributed lag regression with 
+A dummy term is used to isolate the effects of before and after the shock, where it equals one after October 2022.
+
+Results
+All three countries exhibited the same pattern in the data, where a significant positve effect occurs at the base lag (lag 0 ) but is then almost fully reversed by a roughly equal nergative change in lag 1. These were the only two statisitcally significant lags as their P-values < 0.05, with lags 2 and 3 being statistically insignificant. This shows that energy prices feed into the headlone CPI figure within the first month but is not persistnet over the longer term, even beyond the 3 month time lag. 
+The r squared term is high for all three models showing that the previous months CPI rate explains a large proportion of the current months.
+The post-shock dummy shows the effect of the energy shock on each nation's economy the best and how the EPG influences the United Kingdom's results. Canada has a statistically insignficant post-shock dummy, indicating that there is no abnormal infaltion above the nergy price predictions after October 2022.
+The United Kingdom's post shock dummy is stronlgy insignificant, which would allign with the influnece of the EPG on the British economy and shows that the shock never fully materialised in the energy CPI regressor due to this governemtn interference.
+The United States is the only nation of the two which has a statisitcally significant post-shock term, which is also negative. This shows that the headline CPI rate ran .1201 percentage points lower per month than the model predicted. This is shows structural insualtion of the United States economy towards the energy price shock.
+
+Regression Output Summary Tables
+Regressor	Coef.	Std err	p-value
+const	0.0396	0.028	0.162
+energy_yoy	0.0889***	0.003	0.000
+energy_lag1	−0.0795***	0.005	0.000
+energy_lag2	0.0023	0.004	0.599
+energy_lag3	≈ 0.000	0.003	0.990
+headline_lag1	0.9645***	0.016	0.000
+post_shock	−0.0264	0.051	0.604
+R²	0.969
+Adj. R²	0.969
+Cumul. pass-through	+0.0116
+
+
+Regression 2 Energy CPI and Domestic Consumption
+Rgerssion Composition
+A regression for each country that shows the lagged effect of energy prices pon household consumption.
+A dummy term is inlcuded to isolate between the before and after impacts of the shock.
+Three lags are included representing three months to give comparabiltiy over this quarterly period.
+
+Results
+The rsquared term is lower in these regressions than in the previous one, which can be expected as consumption has other drivers that may be more pertinent to consumption shanges such as wages.
+Canada has a completely insignificnt post-shock dummy, showing that consumption did not meanigfully change after October 2022 from what the model would predict, indicating that there is no abnormal consumption response due to the price changes in the energy rate.
+The United States has a statistically significant and positive post-shcok dummy indicating that consumption ran 0.6176 percentage points above model predictions after October 2022. This shows that there is a positive influence to the economy of the United States due to the energy price shock.
+The United Kingdom has a large but not statisitcally relevant reuslt for the post-shock dummy. The data for the United Kingdom is less than that for the United States and Canada which have addtional post-shock quarters to compare and therefore has a large standad error of 3.44.
+The constant term is significant for each country and indicates the consumption growth on a year on year basis at around 1% for each nation. 
+A large portion of the current months consumption growth can be attributed to the previous month, with all three nations having positve and statistically signifcant values for this coefficent, which is smaller in this regression compared to the headline inflation regression due to the influence of other factors on househiold consumption.
+
+
+
+Regression 3 Pooled Panel
+Regression Composition
+The pooled panel regression pools all three nations into a single model, using the US as a baseline to test whether cross-country pass through differences from the previous regressions are statisitcally significant.
+The pass through
+
+Results
+Canada has a higher pass-through relative to the United states, which is statistically significant, showing that enrgy price changes affect Canada's headline CPI rate to a higher degree than the same unit increase in energy prices would influnce the United States. The United Kingdom's pass-through is negative and statistically insignificant, demonstrating that the impact of the one unit change in the energy CPI and its influnce on headline CPI cannot be distinguished between the US and UK.
+
+
+Rgression 4 ALtered UK
+Regression Composition
+
+Results
