@@ -1,0 +1,580 @@
+NEW REGRESSIONS — Core Inflation Pass-Through Analysis
+Canada · United Kingdom · United States  |  1971-01 to 2025-03
+================================================================================
+
+================================================================================
+
+REGRESSION 1: BASELINE PASS-THROUGH (Country-by-Country OLS)
+================================================================================
+Model: CoreCPI_t = α + β·EnergyCPI_t + ε_t
+Purpose: Establishes baseline contemporaneous pass-through per country.
+
+------------------------------------------------------------
+
+Country: Canada
+------------------------------------------------------------
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:            Canada_Core   R-squared:                       0.368
+Model:                            OLS   Adj. R-squared:                  0.367
+Method:                 Least Squares   F-statistic:                     253.0
+Date:                Thu, 14 May 2026   Prob (F-statistic):           2.35e-48
+Time:                        15:51:00   Log-Likelihood:                -1475.6
+No. Observations:                 651   AIC:                             2955.
+Df Residuals:                     649   BIC:                             2964.
+Df Model:                           1                                         
+Covariance Type:                  HC3                                         
+=================================================================================
+                    coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const             6.9609      0.236     29.486      0.000       6.498       7.424
+Canada_Energy    -0.0487      0.003    -15.907      0.000      -0.055      -0.043
+==============================================================================
+Omnibus:                       50.683   Durbin-Watson:                   0.026
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               60.739
+Skew:                           0.740   Prob(JB):                     6.47e-14
+Kurtosis:                       3.223   Cond. No.                         154.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+
+------------------------------------------------------------
+
+Country: UK
+------------------------------------------------------------
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                UK_Core   R-squared:                       0.243
+Model:                            OLS   Adj. R-squared:                  0.242
+Method:                 Least Squares   F-statistic:                     126.3
+Date:                Thu, 14 May 2026   Prob (F-statistic):           6.73e-27
+Time:                        15:51:00   Log-Likelihood:                -1882.3
+No. Observations:                 651   AIC:                             3769.
+Df Residuals:                     649   BIC:                             3778.
+Df Model:                           1                                         
+Covariance Type:                  HC3                                         
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          8.5089      0.381     22.317      0.000       7.762       9.256
+UK_Energy     -0.0573      0.005    -11.238      0.000      -0.067      -0.047
+==============================================================================
+Omnibus:                      170.547   Durbin-Watson:                   0.018
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              355.973
+Skew:                           1.446   Prob(JB):                     5.03e-78
+Kurtosis:                       5.183   Cond. No.                         124.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+
+------------------------------------------------------------
+
+Country: USA
+------------------------------------------------------------
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               USA_Core   R-squared:                       0.186
+Model:                            OLS   Adj. R-squared:                  0.184
+Method:                 Least Squares   F-statistic:                     98.17
+Date:                Thu, 14 May 2026   Prob (F-statistic):           1.21e-21
+Time:                        15:51:00   Log-Likelihood:                -1471.1
+No. Observations:                 651   AIC:                             2946.
+Df Residuals:                     649   BIC:                             2955.
+Df Model:                           1                                         
+Covariance Type:                  HC3                                         
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          3.4229      0.074     46.484      0.000       3.279       3.567
+USA_Energy     0.0942      0.010      9.908      0.000       0.076       0.113
+==============================================================================
+Omnibus:                       75.991   Durbin-Watson:                   0.032
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              101.627
+Skew:                           0.887   Prob(JB):                     8.55e-23
+Kurtosis:                       3.775   Cond. No.                         14.0
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+
+================================================================================
+
+REGRESSION 2: ADL PASS-THROUGH WITH LAGS (12 lags, per country)
+================================================================================
+Model: CoreCPI_t = α + Σ(k=0..12) βₖ·EnergyCPI_{t-k} + γ·CoreCPI_{t-1} + ε_t
+Purpose: Captures dynamic/delayed pass-through. Cumulative β = total effect.
+
+------------------------------------------------------------
+
+Country: Canada
+------------------------------------------------------------
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:            Canada_Core   R-squared:                       0.986
+Model:                            OLS   Adj. R-squared:                  0.986
+Method:                 Least Squares   F-statistic:                     2324.
+Date:                Thu, 14 May 2026   Prob (F-statistic):               0.00
+Time:                        15:51:00   Log-Likelihood:                -234.50
+No. Observations:                 639   AIC:                             499.0
+Df Residuals:                     624   BIC:                             565.9
+Df Model:                          14                                         
+Covariance Type:                  HC3                                         
+================================================================================
+                   coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------
+const            0.1204      0.050      2.427      0.015       0.023       0.218
+core_lag1        0.9833      0.006    151.317      0.000       0.971       0.996
+energy_lag0     -0.0030      0.006     -0.474      0.636      -0.016       0.010
+energy_lag1      0.0164      0.009      1.795      0.073      -0.002       0.034
+energy_lag2     -0.0067      0.010     -0.687      0.492      -0.026       0.012
+energy_lag3     -0.0015      0.010     -0.154      0.877      -0.020       0.018
+energy_lag4      0.0054      0.010      0.556      0.578      -0.014       0.025
+energy_lag5     -0.0098      0.009     -1.073      0.283      -0.028       0.008
+energy_lag6  -6.644e-05      0.009     -0.008      0.994      -0.017       0.017
+energy_lag7      0.0088      0.009      0.975      0.330      -0.009       0.026
+energy_lag8     -0.0105      0.009     -1.148      0.251      -0.029       0.007
+energy_lag9      0.0037      0.010      0.373      0.709      -0.016       0.023
+energy_lag10     0.0055      0.010      0.566      0.572      -0.014       0.025
+energy_lag11     0.0028      0.009      0.305      0.760      -0.015       0.021
+energy_lag12    -0.0122      0.006     -2.108      0.035      -0.023      -0.001
+==============================================================================
+Omnibus:                      100.107   Durbin-Watson:                   2.168
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              955.280
+Skew:                           0.331   Prob(JB):                    3.66e-208
+Kurtosis:                       8.953   Cond. No.                     1.04e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+[2] The condition number is large, 1.04e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+  >>> Cumulative pass-through (Σβ lags 0-12): -0.0011
+  >>> Interpretation: a 1pp rise in energy CPI sustained over 12 months
+      is associated with a -0.0011pp change in core CPI for Canada.
+
+------------------------------------------------------------
+
+Country: UK
+------------------------------------------------------------
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                UK_Core   R-squared:                       0.988
+Model:                            OLS   Adj. R-squared:                  0.987
+Method:                 Least Squares   F-statistic:                     981.3
+Date:                Thu, 14 May 2026   Prob (F-statistic):               0.00
+Time:                        15:51:00   Log-Likelihood:                -535.56
+No. Observations:                 639   AIC:                             1101.
+Df Residuals:                     624   BIC:                             1168.
+Df Model:                          14                                         
+Covariance Type:                  HC3                                         
+================================================================================
+                   coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------
+const            0.0618      0.056      1.113      0.266      -0.047       0.171
+core_lag1        0.9913      0.010     99.073      0.000       0.972       1.011
+energy_lag0      0.0104      0.007      1.479      0.139      -0.003       0.024
+energy_lag1     -0.0062      0.013     -0.488      0.626      -0.031       0.019
+energy_lag2     -0.0015      0.010     -0.140      0.889      -0.022       0.019
+energy_lag3     -0.0034      0.010     -0.361      0.718      -0.022       0.015
+energy_lag4      0.0098      0.011      0.893      0.372      -0.012       0.031
+energy_lag5     -0.0036      0.009     -0.408      0.683      -0.021       0.014
+energy_lag6     -0.0036      0.013     -0.280      0.779      -0.029       0.021
+energy_lag7     -0.0037      0.016     -0.239      0.811      -0.034       0.027
+energy_lag8      0.0012      0.012      0.098      0.922      -0.022       0.024
+energy_lag9     -0.0003      0.011     -0.025      0.980      -0.022       0.021
+energy_lag10     0.0031      0.013      0.237      0.813      -0.023       0.029
+energy_lag11    -0.0034      0.010     -0.321      0.748      -0.024       0.017
+energy_lag12     0.0006      0.005      0.137      0.891      -0.008       0.010
+==============================================================================
+Omnibus:                      196.466   Durbin-Watson:                   1.327
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            16793.373
+Skew:                          -0.257   Prob(JB):                         0.00
+Kurtosis:                      28.109   Cond. No.                         684.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+
+  >>> Cumulative pass-through (Σβ lags 0-12): -0.0005
+  >>> Interpretation: a 1pp rise in energy CPI sustained over 12 months
+      is associated with a -0.0005pp change in core CPI for UK.
+
+------------------------------------------------------------
+
+Country: USA
+------------------------------------------------------------
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               USA_Core   R-squared:                       0.991
+Model:                            OLS   Adj. R-squared:                  0.991
+Method:                 Least Squares   F-statistic:                     1895.
+Date:                Thu, 14 May 2026   Prob (F-statistic):               0.00
+Time:                        15:51:00   Log-Likelihood:                -7.8293
+No. Observations:                 639   AIC:                             45.66
+Df Residuals:                     624   BIC:                             112.6
+Df Model:                          14                                         
+Covariance Type:                  HC3                                         
+================================================================================
+                   coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------
+const            0.0230      0.021      1.111      0.266      -0.018       0.064
+core_lag1        0.9896      0.006    155.597      0.000       0.977       1.002
+energy_lag0      0.0046      0.003      1.634      0.102      -0.001       0.010
+energy_lag1      0.0044      0.004      1.089      0.276      -0.004       0.012
+energy_lag2     -0.0031      0.004     -0.689      0.491      -0.012       0.006
+energy_lag3     -0.0002      0.005     -0.048      0.962      -0.009       0.009
+energy_lag4     -0.0006      0.004     -0.146      0.884      -0.009       0.008
+energy_lag5     -0.0004      0.005     -0.077      0.939      -0.009       0.009
+energy_lag6      0.0001      0.005      0.023      0.982      -0.009       0.009
+energy_lag7      0.0053      0.005      1.182      0.237      -0.004       0.014
+energy_lag8     -0.0027      0.004     -0.623      0.533      -0.011       0.006
+energy_lag9      0.0014      0.004      0.336      0.737      -0.007       0.009
+energy_lag10    -0.0016      0.004     -0.380      0.704      -0.010       0.007
+energy_lag11    -0.0046      0.004     -1.042      0.298      -0.013       0.004
+energy_lag12     0.0006      0.003      0.225      0.822      -0.005       0.006
+==============================================================================
+Omnibus:                      118.303   Durbin-Watson:                   1.264
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1489.329
+Skew:                           0.383   Prob(JB):                         0.00
+Kurtosis:                      10.440   Cond. No.                         76.2
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+
+  >>> Cumulative pass-through (Σβ lags 0-12): 0.0033
+  >>> Interpretation: a 1pp rise in energy CPI sustained over 12 months
+      is associated with a 0.0033pp change in core CPI for USA.
+
+================================================================================
+
+REGRESSION 3: STRUCTURAL BREAK — 2022 REGIME INTERACTION (per country)
+================================================================================
+Model: CoreCPI_t = α + β·EnergyCPI_t + δ·(D2022×EnergyCPI_t) + θ·D2022 + ε_t
+D2022 = 1 from January 2022 onwards.
+Purpose: Tests whether the pass-through coefficient changed in the 2022 episode.
+A significant δ means the transmission mechanism itself shifted, not just the shock size.
+
+------------------------------------------------------------
+
+Country: Canada
+------------------------------------------------------------
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:            Canada_Core   R-squared:                       0.505
+Model:                            OLS   Adj. R-squared:                  0.503
+Method:                 Least Squares   F-statistic:                     224.5
+Date:                Thu, 14 May 2026   Prob (F-statistic):          8.83e-100
+Time:                        15:51:00   Log-Likelihood:                -1396.0
+No. Observations:                 651   AIC:                             2800.
+Df Residuals:                     647   BIC:                             2818.
+Df Model:                           3                                         
+Covariance Type:                  HC3                                         
+==================================================================================
+                     coef    std err          z      P>|z|      [0.025      0.975]
+----------------------------------------------------------------------------------
+const              7.7940      0.225     34.700      0.000       7.354       8.234
+Canada_Energy     -0.0662      0.003    -24.494      0.000      -0.072      -0.061
+D2022_x_energy     0.1311      0.019      6.993      0.000       0.094       0.168
+D2022            -12.9950      2.653     -4.898      0.000     -18.195      -7.795
+==============================================================================
+Omnibus:                       25.424   Durbin-Watson:                   0.039
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               30.151
+Skew:                           0.414   Prob(JB):                     2.84e-07
+Kurtosis:                       3.652   Cond. No.                     6.19e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+[2] The condition number is large, 6.19e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+  >>> Pre-2021 pass-through (β):          -0.0662
+  >>> Post-2021 pass-through (β + δ):     0.0648
+  >>> Change in pass-through (δ):         0.1311  p=0.0000
+
+------------------------------------------------------------
+
+Country: UK
+------------------------------------------------------------
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                UK_Core   R-squared:                       0.412
+Model:                            OLS   Adj. R-squared:                  0.410
+Method:                 Least Squares   F-statistic:                     229.2
+Date:                Thu, 14 May 2026   Prob (F-statistic):          2.80e-101
+Time:                        15:51:00   Log-Likelihood:                -1799.8
+No. Observations:                 651   AIC:                             3608.
+Df Residuals:                     647   BIC:                             3625.
+Df Model:                           3                                         
+Covariance Type:                  HC3                                         
+==================================================================================
+                     coef    std err          z      P>|z|      [0.025      0.975]
+----------------------------------------------------------------------------------
+const             10.1734      0.365     27.850      0.000       9.457      10.889
+UK_Energy         -0.0967      0.005    -20.794      0.000      -0.106      -0.088
+D2022_x_energy     0.1280      0.006     19.749      0.000       0.115       0.141
+D2022            -10.2483      0.845    -12.123      0.000     -11.905      -8.591
+==============================================================================
+Omnibus:                      166.932   Durbin-Watson:                   0.026
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              397.491
+Skew:                           1.335   Prob(JB):                     4.85e-87
+Kurtosis:                       5.743   Cond. No.                     2.88e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+[2] The condition number is large, 2.88e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+  >>> Pre-2021 pass-through (β):          -0.0967
+  >>> Post-2021 pass-through (β + δ):     0.0313
+  >>> Change in pass-through (δ):         0.1280  p=0.0000
+
+------------------------------------------------------------
+
+Country: USA
+------------------------------------------------------------
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               USA_Core   R-squared:                       0.193
+Model:                            OLS   Adj. R-squared:                  0.189
+Method:                 Least Squares   F-statistic:                     79.97
+Date:                Thu, 14 May 2026   Prob (F-statistic):           5.16e-44
+Time:                        15:51:00   Log-Likelihood:                -1468.2
+No. Observations:                 651   AIC:                             2944.
+Df Residuals:                     647   BIC:                             2962.
+Df Model:                           3                                         
+Covariance Type:                  HC3                                         
+==================================================================================
+                     coef    std err          z      P>|z|      [0.025      0.975]
+----------------------------------------------------------------------------------
+const              3.3615      0.076     43.987      0.000       3.212       3.511
+USA_Energy         0.0977      0.010      9.423      0.000       0.077       0.118
+D2022_x_energy    -0.0401      0.014     -2.865      0.004      -0.068      -0.013
+D2022              0.9623      0.194      4.950      0.000       0.581       1.343
+==============================================================================
+Omnibus:                       78.901   Durbin-Watson:                   0.033
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              107.278
+Skew:                           0.901   Prob(JB):                     5.07e-24
+Kurtosis:                       3.840   Cond. No.                         58.8
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+
+  >>> Pre-2021 pass-through (β):          0.0977
+  >>> Post-2021 pass-through (β + δ):     0.0576
+  >>> Change in pass-through (δ):         -0.0401  p=0.0042
+
+================================================================================
+
+REGRESSION 4: PANEL REGRESSION — COUNTRY FIXED EFFECTS + FOSSIL SHARE INTERACTION
+================================================================================
+Model A: CoreCPI_it = αᵢ + β·EnergyCPI_it + εᵢₜ   [country FE only]
+Model B: CoreCPI_it = αᵢ + β·EnergyCPI_it + δ·(EnergyCPI_it × FossilShare_i) + εᵢₜ
+Purpose: Pools all three countries. FE absorbs structural level differences.
+Interaction tests whether higher fossil electricity share amplifies pass-through.
+
+------------------------------------------------------------
+
+Model A — Country Fixed Effects only
+------------------------------------------------------------
+                          PanelOLS Estimation Summary                           
+================================================================================
+Dep. Variable:                   core   R-squared:                        0.0107
+Estimator:                   PanelOLS   R-squared (Between):             -0.0661
+No. Observations:                1449   R-squared (Within):               0.0107
+Date:                Thu, May 14 2026   R-squared (Overall):              0.0095
+Time:                        15:51:00   Log-likelihood                   -2805.5
+Cov. Estimator:                Robust                                           
+                                        F-statistic:                      15.585
+Entities:                           3   P-value                           0.0001
+Avg Obs:                       483.00   Distribution:                  F(1,1445)
+Min Obs:                       483.00                                           
+Max Obs:                       483.00   F-statistic (robust):             7.1390
+                                        P-value                           0.0076
+Time periods:                     483   Distribution:                  F(1,1445)
+Avg Obs:                       3.0000                                           
+Min Obs:                       3.0000                                           
+Max Obs:                       3.0000                                           
+                                                                                
+                             Parameter Estimates                              
+==============================================================================
+            Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
+------------------------------------------------------------------------------
+const          3.0294     0.1330     22.772     0.0000      2.7684      3.2903
+energy        -0.0059     0.0022    -2.6719     0.0076     -0.0103     -0.0016
+==============================================================================
+
+F-test for Poolability: 10.110
+P-value: 0.0000
+Distribution: F(2,1445)
+
+Included effects: Entity
+
+------------------------------------------------------------
+
+Model B — Country FE + Fossil Share Interaction
+------------------------------------------------------------
+                          PanelOLS Estimation Summary                           
+================================================================================
+Dep. Variable:                   core   R-squared:                        0.0592
+Estimator:                   PanelOLS   R-squared (Between):             -18.521
+No. Observations:                1449   R-squared (Within):               0.0592
+Date:                Thu, May 14 2026   R-squared (Overall):             -0.2225
+Time:                        15:51:00   Log-likelihood                   -2769.1
+Cov. Estimator:                Robust                                           
+                                        F-statistic:                      45.438
+Entities:                           3   P-value                           0.0000
+Avg Obs:                       483.00   Distribution:                  F(2,1444)
+Min Obs:                       483.00                                           
+Max Obs:                       483.00   F-statistic (robust):             47.594
+                                        P-value                           0.0000
+Time periods:                     483   Distribution:                  F(2,1444)
+Avg Obs:                       3.0000                                           
+Min Obs:                       3.0000                                           
+Max Obs:                       3.0000                                           
+                                                                                
+                                Parameter Estimates                                
+===================================================================================
+                 Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
+-----------------------------------------------------------------------------------
+const               3.3294     0.1372     24.273     0.0000      3.0603      3.5985
+energy              0.0127     0.0026     4.8168     0.0000      0.0075      0.0179
+energy_x_fossil    -0.0006  6.128e-05    -9.6267     0.0000     -0.0007     -0.0005
+===================================================================================
+
+F-test for Poolability: 47.872
+P-value: 0.0000
+Distribution: F(2,1444)
+
+Included effects: Entity
+
+  >>> β (base pass-through):              0.0127
+  >>> δ (fossil share amplification):     -0.0006  p=0.0000
+  >>> Interpretation: a 1pp higher fossil share of electricity multiplies
+      the energy→core pass-through by an additional -0.0006 per pp.
+
+================================================================================
+
+REGRESSION 5: ROLLING WINDOW PASS-THROUGH (60-month window, per country)
+================================================================================
+Model: CoreCPI_t = α + β·EnergyCPI_t + ε_t  estimated in rolling 60-month windows.
+Purpose: Tracks when the pass-through relationship changed and whether it persisted.
+
+------------------------------------------------------------
+
+Country: Canada
+------------------------------------------------------------
+
+  Period                             Mean β      Min β      Max β
+  --------------------------------------------------------------
+  Post-1970s oil shocks              0.0773    -0.5348     1.5939
+  Great Moderation                  -0.2191    -0.9781     0.1900
+  2000s                             -0.0006    -0.0590     0.0792
+  Pre-COVID                         -0.0290    -0.0610     0.0056
+  COVID/2022 shock                   0.0441     0.0053     0.0769
+  Post-shock                         0.0743     0.0665     0.0812
+
+  >>> Peak β: 1.5939 in 1976-01
+  >>> Trough β: -0.9781 in 1996-02
+
+------------------------------------------------------------
+
+Country: UK
+------------------------------------------------------------
+
+  Period                             Mean β      Min β      Max β
+  --------------------------------------------------------------
+  Post-1970s oil shocks              0.0584    -1.4015     3.1657
+  Great Moderation                   0.0415    -1.0967     1.3630
+  2000s                             -0.0566    -0.2852     0.0345
+  Pre-COVID                          0.0151    -0.0299     0.0325
+  COVID/2022 shock                   0.0221    -0.0054     0.0703
+  Post-shock                         0.0535     0.0511     0.0551
+
+  >>> Peak β: 3.1657 in 1976-01
+  >>> Trough β: -1.4015 in 1979-07
+
+------------------------------------------------------------
+
+Country: USA
+------------------------------------------------------------
+
+  Period                             Mean β      Min β      Max β
+  --------------------------------------------------------------
+  Post-1970s oil shocks              0.1529     0.0518     0.3718
+  Great Moderation                   0.0385    -0.0933     0.3705
+  2000s                             -0.0031    -0.0155     0.0102
+  Pre-COVID                          0.0000    -0.0158     0.0080
+  COVID/2022 shock                   0.0395     0.0014     0.0966
+  Post-shock                         0.0732     0.0623     0.0961
+
+  >>> Peak β: 0.3718 in 1985-12
+  >>> Trough β: -0.0933 in 1996-08
+
+================================================================================
+
+REGRESSION 6: INFLATION EPISODE COMPARISON (Panel with episode dummies × energy)
+================================================================================
+Model: CoreCPI_it = αᵢ + β·EnergyCPI_it + Σ γₑ·(Dₑ×EnergyCPI_it) + εᵢₜ
+Episodes: D1973 (1973-01 to 1975-12), D1979 (1979-01 to 1982-12),
+          D2022 (2022-01 to 2023-12).
+Purpose: Compares 2022 pass-through against the 1973 and 1979 oil shocks.
+A non-significant γ₂₀₂₂ vs γ₁₉₇₃ means 2022 was not structurally novel.
+
+------------------------------------------------------------
+
+Full panel (all three countries pooled)
+------------------------------------------------------------
+                          PanelOLS Estimation Summary                           
+================================================================================
+Dep. Variable:                   core   R-squared:                        0.5606
+Estimator:                   PanelOLS   R-squared (Between):             -4.5018
+No. Observations:                1953   R-squared (Within):               0.5606
+Date:                Thu, May 14 2026   R-squared (Overall):              0.4246
+Time:                        15:51:01   Log-likelihood                   -4505.7
+Cov. Estimator:                Robust                                           
+                                        F-statistic:                      354.17
+Entities:                           3   P-value                           0.0000
+Avg Obs:                       651.00   Distribution:                  F(7,1943)
+Min Obs:                       651.00                                           
+Max Obs:                       651.00   F-statistic (robust):             258.59
+                                        P-value                           0.0000
+Time periods:                     651   Distribution:                  F(7,1943)
+Avg Obs:                       3.0000                                           
+Min Obs:                       3.0000                                           
+Max Obs:                       3.0000                                           
+                                                                                
+                             Parameter Estimates                              
+==============================================================================
+            Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
+------------------------------------------------------------------------------
+const          5.1600     0.1407     36.683     0.0000      4.8841      5.4358
+energy        -0.0432     0.0024    -17.755     0.0000     -0.0480     -0.0384
+D1973_x_e      0.0883     0.0379     2.3298     0.0199      0.0140      0.1627
+D1979_x_e      0.0542     0.0188     2.8733     0.0041      0.0172      0.0911
+D2022_x_e      0.0239     0.0021     11.212     0.0000      0.0197      0.0281
+D1973          4.5104     0.7633     5.9093     0.0000      3.0135      6.0073
+D1979          5.4752     0.5139     10.655     0.0000      4.4674      6.4830
+D2022          2.1469     0.2454     8.7495     0.0000      1.6656      2.6281
+==============================================================================
+
+F-test for Poolability: 200.51
+P-value: 0.0000
+Distribution: F(2,1943)
+
+Included effects: Entity
+
+  >>> Baseline pass-through (β):             -0.0432
+  >>> Extra pass-through in 1973 ep (γ₁₉₇₃): 0.0883  p=0.0199
+  >>> Extra pass-through in 1979 ep (γ₁₉₇₉): 0.0542  p=0.0041
+  >>> Extra pass-through in 2022 ep (γ₂₀₂₂): 0.0239  p=0.0000
+
+  >>> Total 1973 pass-through (β + γ₁₉₇₃):  0.0451
+  >>> Total 1979 pass-through (β + γ₁₉₇₉):  0.0109
+  >>> Total 2022 pass-through (β + γ₂₀₂₂):  -0.0193
