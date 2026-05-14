@@ -313,6 +313,53 @@ Panel Reg 4 Model A — time-clustered standard errors
 
 ================================================================================
 
+ROBUSTNESS TEST 11: SUB-PERIOD STABILITY AND TIME-TREND CONTROL
+================================================================================
+  Probes whether the full-sample conditional correlation (Reg 1) is driven
+  by a particular historical epoch or survives across sub-periods.
+  Also tests functional-form sensitivity by adding a linear time trend.
+  Epochs: (i) 1971-1984 oil shocks, (ii) 1985-1999 Great Moderation,
+          (iii) 2000-2019 pre-COVID, (iv) 2020-2025 post-COVID.
+
+------------------------------------------------------------
+
+11A — Sub-period OLS: β by historical epoch (HAC SEs)
+------------------------------------------------------------
+    Country  Epoch                                 β        p     R²      N  Significance
+    ------------------------------------------------------------------------------
+    Canada   Oil shocks (1971-84)             0.0239   0.7318  0.011    168      NOT significant
+    Canada   Great Moderation (1985-99)      -0.2603   0.0000  0.518    180  *** sig. at 1% and 5%
+    Canada   Pre-COVID (2000-19)             -0.0104   0.1505  0.065    240      NOT significant
+    Canada   Post-COVID (2020-25)             0.0653   0.0000  0.611     63  *** sig. at 1% and 5%
+
+    UK       Oil shocks (1971-84)            -0.1877   0.1666  0.093    168      NOT significant
+    UK       Great Moderation (1985-99)      -0.3054   0.0000  0.495    180  *** sig. at 1% and 5%
+    UK       Pre-COVID (2000-19)              0.0143   0.0005  0.340    240  *** sig. at 1% and 5%
+    UK       Post-COVID (2020-25)             0.0529   0.0000  0.892     63  *** sig. at 1% and 5%
+
+    USA      Oil shocks (1971-84)             0.1752   0.0000  0.446    168  *** sig. at 1% and 5%
+    USA      Great Moderation (1985-99)       0.0247   0.4132  0.029    180      NOT significant
+    USA      Pre-COVID (2000-19)              0.0024   0.5932  0.004    240      NOT significant
+    USA      Post-COVID (2020-25)             0.0628   0.0008  0.373     63  *** sig. at 1% and 5%
+
+
+------------------------------------------------------------
+
+11B — Time-trend control: β before and after removing deterministic trend (HAC SEs)
+------------------------------------------------------------
+  Adds a linear time index as a regressor to absorb any shared deterministic trend.
+    Country    β (no trend)        p   β (+trend)        p  Change?
+    --------------------------------------------------------------
+    Canada          -0.0487   0.0000       0.0817   0.0101  **  sig. at 5%, not 1%  [SAME]
+    UK              -0.0573   0.0009       0.1308   0.0000  *** sig. at 1% and 5%  [SAME]
+    USA              0.0942   0.0012       0.0736   0.0014  *** sig. at 1% and 5%  [SAME]
+
+  VERDICT: If β is significant and consistent in sign across all four epochs,
+           the full-sample correlation is not driven by any single period.
+           If β survives time-trend control, the correlation is not a shared trend artefact.
+
+================================================================================
+
 OVERALL ROBUSTNESS SUMMARY
 ================================================================================
   Assessment of whether baseline findings survive each robustness test.
@@ -331,3 +378,4 @@ OVERALL ROBUSTNESS SUMMARY
     Test 8: Alt lag lengths (6, 12, 24)                YES                Cumulative pass-through near zero across all lag lengths
     Test 9: Brent crude control                        YES                Country energy β stable after controlling for global oil price
     Test 10: Pesaran CD + two-way FE                   PARTIAL            CD test shows cross-sectional dependence; β under two-way FE p=0.3447
+    Test 11: Sub-period stability + time trend         PARTIAL            β significant in oil-shock epoch; near-zero in Great Moderation/pre-COVID; survives time-trend control

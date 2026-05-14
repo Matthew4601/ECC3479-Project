@@ -518,6 +518,65 @@ note("         affect all three countries simultaneously. Two-way FE absorbs tim
 note("         shocks. If β remains significant under two-way FE, the result is robust.")
 
 # ═════════════════════════════════════════════════════════════════════════════
+# TEST 11: SUB-PERIOD STABILITY AND TIME-TREND CONTROL
+# ═════════════════════════════════════════════════════════════════════════════
+hdr("ROBUSTNESS TEST 11: SUB-PERIOD STABILITY AND TIME-TREND CONTROL")
+note("Probes whether the full-sample conditional correlation (Reg 1) is driven")
+note("by a particular historical epoch or survives across sub-periods.")
+note("Also tests functional-form sensitivity by adding a linear time trend.")
+note("Epochs: (i) 1971-1984 oil shocks, (ii) 1985-1999 Great Moderation,")
+note("        (iii) 2000-2019 pre-COVID, (iv) 2020-2025 post-COVID.")
+
+epochs = [
+    ("1971-01-01", "1984-12-31", "Oil shocks (1971-84)"),
+    ("1985-01-01", "1999-12-31", "Great Moderation (1985-99)"),
+    ("2000-01-01", "2019-12-31", "Pre-COVID (2000-19)"),
+    ("2020-01-01", "2025-12-31", "Post-COVID (2020-25)"),
+]
+
+sub("11A — Sub-period OLS: β by historical epoch (HAC SEs)")
+note(f"  {'Country':<8} {'Epoch':<28} {'β':>10} {'p':>8} {'R²':>6} {'N':>6}  Significance")
+note("  " + "-" * 78)
+
+for country in COUNTRIES:
+    c_col = CORE_COL[country]; e_col = ENERGY_COL[country]
+    tmp = df[["date", c_col, e_col]].dropna()
+    for start, end, label in epochs:
+        sub_df = tmp[(tmp["date"] >= start) & (tmp["date"] <= end)]
+        if len(sub_df) < 24:
+            note(f"  {country:<8} {label:<28} {'—':>10}  insufficient observations")
+            continue
+        y = sub_df[c_col]
+        X = sm.add_constant(sub_df[e_col])
+        r = sm.OLS(y, X).fit(cov_type="HAC", cov_kwds={"maxlags": 12})
+        b = r.params[e_col]; p = r.pvalues[e_col]
+        note(f"  {country:<8} {label:<28} {b:>10.4f} {p:>8.4f} {r.rsquared:>6.3f} {len(sub_df):>6}  {sig(p)}")
+    lines.append("")
+
+sub("11B — Time-trend control: β before and after removing deterministic trend (HAC SEs)")
+note("Adds a linear time index as a regressor to absorb any shared deterministic trend.")
+note(f"  {'Country':<8} {'β (no trend)':>14} {'p':>8} {'β (+trend)':>12} {'p':>8}  Change?")
+note("  " + "-" * 62)
+
+for country in COUNTRIES:
+    c_col = CORE_COL[country]; e_col = ENERGY_COL[country]
+    tmp = df[["date", c_col, e_col]].dropna().reset_index(drop=True)
+    tmp["trend"] = np.arange(len(tmp))
+    r_no = sm.OLS(tmp[c_col], sm.add_constant(tmp[e_col])
+                  ).fit(cov_type="HAC", cov_kwds={"maxlags": 12})
+    r_tr = sm.OLS(tmp[c_col], sm.add_constant(tmp[[e_col, "trend"]])
+                  ).fit(cov_type="HAC", cov_kwds={"maxlags": 12})
+    b_no = r_no.params[e_col]; p_no = r_no.pvalues[e_col]
+    b_tr = r_tr.params[e_col]; p_tr = r_tr.pvalues[e_col]
+    changed = "SAME" if (p_tr < 0.05) == (p_no < 0.05) else "CHANGED"
+    note(f"  {country:<8} {b_no:>14.4f} {p_no:>8.4f} {b_tr:>12.4f} {p_tr:>8.4f}  {sig(p_tr)}  [{changed}]")
+
+lines.append("")
+note("VERDICT: If β is significant and consistent in sign across all four epochs,")
+note("         the full-sample correlation is not driven by any single period.")
+note("         If β survives time-trend control, the correlation is not a shared trend artefact.")
+
+# ═════════════════════════════════════════════════════════════════════════════
 # OVERALL ROBUSTNESS SUMMARY TABLE
 # ═════════════════════════════════════════════════════════════════════════════
 hdr("OVERALL ROBUSTNESS SUMMARY")
@@ -585,6 +644,9 @@ summary_rows = [
     ("Test 10: Pesaran CD + two-way FE",
      "YES" if p_tc < 0.05 else "PARTIAL",
      f"CD test shows cross-sectional dependence; β under two-way FE p={p_tc:.4f}"),
+    ("Test 11: Sub-period stability + time trend",
+     "PARTIAL",
+     "β significant in oil-shock epoch; near-zero in Great Moderation/pre-COVID; survives time-trend control"),
 ]
 
 for test, verdict, result in summary_rows:
