@@ -18,8 +18,8 @@ Country: Canada
 Dep. Variable:            Canada_Core   R-squared:                       0.368
 Model:                            OLS   Adj. R-squared:                  0.367
 Method:                 Least Squares   F-statistic:                     253.0
-Date:                Thu, 14 May 2026   Prob (F-statistic):           2.35e-48
-Time:                        15:51:00   Log-Likelihood:                -1475.6
+Date:                Tue, 26 May 2026   Prob (F-statistic):           2.35e-48
+Time:                        21:07:43   Log-Likelihood:                -1475.6
 No. Observations:                 651   AIC:                             2955.
 Df Residuals:                     649   BIC:                             2964.
 Df Model:                           1                                         
@@ -48,8 +48,8 @@ Country: UK
 Dep. Variable:                UK_Core   R-squared:                       0.243
 Model:                            OLS   Adj. R-squared:                  0.242
 Method:                 Least Squares   F-statistic:                     126.3
-Date:                Thu, 14 May 2026   Prob (F-statistic):           6.73e-27
-Time:                        15:51:00   Log-Likelihood:                -1882.3
+Date:                Tue, 26 May 2026   Prob (F-statistic):           6.73e-27
+Time:                        21:07:43   Log-Likelihood:                -1882.3
 No. Observations:                 651   AIC:                             3769.
 Df Residuals:                     649   BIC:                             3778.
 Df Model:                           1                                         
@@ -78,8 +78,8 @@ Country: USA
 Dep. Variable:               USA_Core   R-squared:                       0.186
 Model:                            OLS   Adj. R-squared:                  0.184
 Method:                 Least Squares   F-statistic:                     98.17
-Date:                Thu, 14 May 2026   Prob (F-statistic):           1.21e-21
-Time:                        15:51:00   Log-Likelihood:                -1471.1
+Date:                Tue, 26 May 2026   Prob (F-statistic):           1.21e-21
+Time:                        21:07:43   Log-Likelihood:                -1471.1
 No. Observations:                 651   AIC:                             2946.
 Df Residuals:                     649   BIC:                             2955.
 Df Model:                           1                                         
@@ -115,8 +115,8 @@ Country: Canada
 Dep. Variable:            Canada_Core   R-squared:                       0.986
 Model:                            OLS   Adj. R-squared:                  0.986
 Method:                 Least Squares   F-statistic:                     2324.
-Date:                Thu, 14 May 2026   Prob (F-statistic):               0.00
-Time:                        15:51:00   Log-Likelihood:                -234.50
+Date:                Tue, 26 May 2026   Prob (F-statistic):               0.00
+Time:                        21:07:43   Log-Likelihood:                -234.50
 No. Observations:                 639   AIC:                             499.0
 Df Residuals:                     624   BIC:                             565.9
 Df Model:                          14                                         
@@ -164,8 +164,8 @@ Country: UK
 Dep. Variable:                UK_Core   R-squared:                       0.988
 Model:                            OLS   Adj. R-squared:                  0.987
 Method:                 Least Squares   F-statistic:                     981.3
-Date:                Thu, 14 May 2026   Prob (F-statistic):               0.00
-Time:                        15:51:00   Log-Likelihood:                -535.56
+Date:                Tue, 26 May 2026   Prob (F-statistic):               0.00
+Time:                        21:07:43   Log-Likelihood:                -535.56
 No. Observations:                 639   AIC:                             1101.
 Df Residuals:                     624   BIC:                             1168.
 Df Model:                          14                                         
@@ -211,8 +211,8 @@ Country: USA
 Dep. Variable:               USA_Core   R-squared:                       0.991
 Model:                            OLS   Adj. R-squared:                  0.991
 Method:                 Least Squares   F-statistic:                     1895.
-Date:                Thu, 14 May 2026   Prob (F-statistic):               0.00
-Time:                        15:51:00   Log-Likelihood:                -7.8293
+Date:                Tue, 26 May 2026   Prob (F-statistic):               0.00
+Time:                        21:07:43   Log-Likelihood:                -7.8293
 No. Observations:                 639   AIC:                             45.66
 Df Residuals:                     624   BIC:                             112.6
 Df Model:                          14                                         
@@ -267,8 +267,8 @@ Country: Canada
 Dep. Variable:            Canada_Core   R-squared:                       0.505
 Model:                            OLS   Adj. R-squared:                  0.503
 Method:                 Least Squares   F-statistic:                     224.5
-Date:                Thu, 14 May 2026   Prob (F-statistic):          8.83e-100
-Time:                        15:51:00   Log-Likelihood:                -1396.0
+Date:                Tue, 26 May 2026   Prob (F-statistic):          8.83e-100
+Time:                        21:07:43   Log-Likelihood:                -1396.0
 No. Observations:                 651   AIC:                             2800.
 Df Residuals:                     647   BIC:                             2818.
 Df Model:                           3                                         
@@ -305,8 +305,8 @@ Country: UK
 Dep. Variable:                UK_Core   R-squared:                       0.412
 Model:                            OLS   Adj. R-squared:                  0.410
 Method:                 Least Squares   F-statistic:                     229.2
-Date:                Thu, 14 May 2026   Prob (F-statistic):          2.80e-101
-Time:                        15:51:00   Log-Likelihood:                -1799.8
+Date:                Tue, 26 May 2026   Prob (F-statistic):          2.80e-101
+Time:                        21:07:43   Log-Likelihood:                -1799.8
 No. Observations:                 651   AIC:                             3608.
 Df Residuals:                     647   BIC:                             3625.
 Df Model:                           3                                         
@@ -343,8 +343,8 @@ Country: USA
 Dep. Variable:               USA_Core   R-squared:                       0.193
 Model:                            OLS   Adj. R-squared:                  0.189
 Method:                 Least Squares   F-statistic:                     79.97
-Date:                Thu, 14 May 2026   Prob (F-statistic):           5.16e-44
-Time:                        15:51:00   Log-Likelihood:                -1468.2
+Date:                Tue, 26 May 2026   Prob (F-statistic):           5.16e-44
+Time:                        21:07:43   Log-Likelihood:                -1468.2
 No. Observations:                 651   AIC:                             2944.
 Df Residuals:                     647   BIC:                             2962.
 Df Model:                           3                                         
@@ -388,8 +388,8 @@ Model A — Country Fixed Effects only
 Dep. Variable:                   core   R-squared:                        0.0107
 Estimator:                   PanelOLS   R-squared (Between):             -0.0661
 No. Observations:                1449   R-squared (Within):               0.0107
-Date:                Thu, May 14 2026   R-squared (Overall):              0.0095
-Time:                        15:51:00   Log-likelihood                   -2805.5
+Date:                Tue, May 26 2026   R-squared (Overall):              0.0095
+Time:                        21:07:43   Log-likelihood                   -2805.5
 Cov. Estimator:                Robust                                           
                                         F-statistic:                      15.585
 Entities:                           3   P-value                           0.0001
@@ -425,8 +425,8 @@ Model B — Country FE + Fossil Share Interaction
 Dep. Variable:                   core   R-squared:                        0.0592
 Estimator:                   PanelOLS   R-squared (Between):             -18.521
 No. Observations:                1449   R-squared (Within):               0.0592
-Date:                Thu, May 14 2026   R-squared (Overall):             -0.2225
-Time:                        15:51:00   Log-likelihood                   -2769.1
+Date:                Tue, May 26 2026   R-squared (Overall):             -0.2225
+Time:                        21:07:43   Log-likelihood                   -2769.1
 Cov. Estimator:                Robust                                           
                                         F-statistic:                      45.438
 Entities:                           3   P-value                           0.0000
@@ -536,8 +536,8 @@ Full panel (all three countries pooled)
 Dep. Variable:                   core   R-squared:                        0.5606
 Estimator:                   PanelOLS   R-squared (Between):             -4.5018
 No. Observations:                1953   R-squared (Within):               0.5606
-Date:                Thu, May 14 2026   R-squared (Overall):              0.4246
-Time:                        15:51:01   Log-likelihood                   -4505.7
+Date:                Tue, May 26 2026   R-squared (Overall):              0.4246
+Time:                        21:07:43   Log-likelihood                   -4505.7
 Cov. Estimator:                Robust                                           
                                         F-statistic:                      354.17
 Entities:                           3   P-value                           0.0000
